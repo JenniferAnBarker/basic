@@ -3,7 +3,7 @@
     <div data-simplebar class="h-100">
 
         <!-- User details -->
-        <div class="user-profile text-center mt-3">
+        {{-- <div class="user-profile text-center mt-3">
             <div class="">
                 <img src="{{ asset('backend/assets/images/users/avatar-1.jpg')}}" alt="" class="avatar-md rounded-circle">
             </div>
@@ -11,7 +11,7 @@
                 <h4 class="font-size-16 mb-1">Julia Hudda</h4>
                 <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
             </div>
-        </div>
+        </div> --}}
 
         <!--- Sidemenu -->
         <div id="sidebar-menu">
@@ -105,9 +105,9 @@
                     </ul>
                 </li>
 
-                <li class="menu-title">Components</li>
+                {{-- <li class="menu-title">Components</li> --}}
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-pencil-ruler-2-line"></i>
                         <span>UI Elements</span>
@@ -230,7 +230,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
             </ul>
         </div>
