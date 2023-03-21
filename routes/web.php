@@ -12,6 +12,7 @@ Route::get('/', function () {
 //Admin All Route
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
+    Route::get('/admin/profile', 'profile')->name('admin.profile');
 });
 
 Route::get('/dashboard', function () {
