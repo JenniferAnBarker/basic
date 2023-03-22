@@ -38,7 +38,7 @@
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10 mb- mt-3">
-                                    <img id="showImage" class="rounded avatar-lg" src="{{ asset('backend/assets/images/small/img-5.jpg')}}" alt="Card image cap">
+                                    <img id="showImage" class="rounded avatar-lg" src="{{(!empty($editData->profile_image))? url('upload/admin_images/'.$editData->profile_image): url('upload/no_image.png') }}" alt="Card image cap">
                                 </div>
                             </div>
                             <input type="submit" value="Update Profile" class="btn btn-info waves-effect waves-light">
@@ -51,7 +51,7 @@
 </div>
 
 <script type="text/javascript">
-
+// {{ asset('backend/assets/images/small/img-5.jpg')}}
 $(document).ready(function(){
     $('#image').change(function(e){
         var reader = new FileReader();
