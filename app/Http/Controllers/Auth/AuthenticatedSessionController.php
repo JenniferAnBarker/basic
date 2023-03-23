@@ -16,7 +16,7 @@ class AuthenticatedSessionController extends Controller
      * Display the login view.
      */
     public function create(): View
-    {
+    { 
         return view('auth.login');
     }
 
@@ -29,7 +29,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $notification = array(
+            'message' => 'Welcome Back!',
+            'alert-type' => 'success'
+        );
+        return redirect()->intended(RouteServiceProvider::HOME)->with($notification);
     }
 
     /**

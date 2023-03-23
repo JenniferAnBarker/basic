@@ -16,7 +16,12 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $notification = array(
+            'message' => 'You have successfully logged out!',
+            'alert-type' => 'success'
+        );
+
+        return redirect('/login')->with($notification);
     }
 
     public function profile() {
@@ -28,6 +33,7 @@ class AdminController extends Controller
     public function edit() {
         $id = Auth::user()->id;
         $editData = User::find($id);
+
         return view('admin.admin_profile_edit',compact('editData'));
     }
 
@@ -48,7 +54,7 @@ class AdminController extends Controller
         $data->save();
 
         $notification = array (
-            'message' => 'Admin Profile Updated Successfully!',
+            'message' => 'Changes Saved!',
             'alert-type' => 'success'
         );
 
