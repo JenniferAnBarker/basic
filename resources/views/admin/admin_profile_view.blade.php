@@ -25,5 +25,5 @@
         </div>
     </div>
 </div>
-asset('backend/assets/images/small/img-5.jpg')
+
 @endsection

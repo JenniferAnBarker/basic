@@ -51,7 +51,7 @@
 </div>
 
 <script type="text/javascript">
-// {{ asset('backend/assets/images/small/img-5.jpg')}}
+
 $(document).ready(function(){
     $('#image').change(function(e){
         var reader = new FileReader();
