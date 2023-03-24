@@ -12,23 +12,29 @@
 
                         <h4 class="card-title mb-4">Change Password Page</h4>
                         
+                        @if(count($errors)) 
+                            @foreach($errors->all() as $error)
+                            <p class="alert alert-danger alert-dismissible fade show">{{$error}}</p>
+                            @endforeach
+                        @endif
+
                         <form method="post" action="{{ route('update.password')}}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Current Password</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="oldpassword" class="form-control" type="text" value="" id="oldpassword">
+                                    <input name="old_password" class="form-control" type="password" value="" id="oldpassword">
                                 </div>
                                 
                                 <label for="example-text-input" class="col-sm-2 col-form-label">New Password</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="newpassword" class="form-control" type="text" value="" id="newpassword">
+                                    <input name="new_password" class="form-control" type="password" value="" id="newpassword">
                                 </div>
                                 
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Confirm Password</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="confirmpassword" class="form-control" type="text" value="" id="confirmpassword">
+                                    <input name="confirm_password" class="form-control" type="password" value="" id="confirmpassword">
                                 </div>
                                 
                             </div>
