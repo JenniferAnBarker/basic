@@ -22,20 +22,20 @@ class AdminController extends Controller
         );
 
         return redirect('/login')->with($notification);
-    }
+    } // End Method
 
     public function profile() {
         $id = Auth::user()->id;
         $adminData = User::find($id);
         return view('admin.admin_profile_view',compact('adminData'));
-    }
+    } // End Method
 
     public function edit() {
         $id = Auth::user()->id;
         $editData = User::find($id);
 
         return view('admin.admin_profile_edit',compact('editData'));
-    }
+    } // End Method
 
     public function store(Request $request) {
         $id = Auth::user()->id;
@@ -59,5 +59,14 @@ class AdminController extends Controller
         );
 
         return redirect()->route('admin.profile')->with($notification);
-    }
+    } // End Method
+
+    public function changePassword(){
+       
+        return view('admin.admin_change_password');
+    } // End Method
+
+    public function updatePassword(Request $request){
+
+    } // End Method
 }
