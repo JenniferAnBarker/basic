@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Home;
 
+use Image;
 use App\Models\HomeSlide;
+// use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Intervention\Image\Facades\Image;
 
 class HomeSliderController extends Controller
 {
@@ -18,8 +19,8 @@ class HomeSliderController extends Controller
     public function update(Request $request) {
         $slide_id = $request->id;
 
-        if($request->file('slide')) {
-            $image = $request->file('slide');
+        if($request->file('home_slide')) {
+            $image = $request->file('home_slide');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
 
             Image::make($image)->resize(636.852)->save('upload/home_slide/'.$name_gen);
