@@ -45,11 +45,21 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>About Page Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('about.page')}}">About Page</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-layout-3-line"></i>
                         <span>Layouts</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li>
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow">Vertical</a>
                             <ul class="sub-menu" aria-expanded="true">
                                 <li><a href="layouts-dark-sidebar.html">Dark Sidebar</a></li>
@@ -70,7 +80,7 @@
                                 <li><a href="layouts-hori-preloader.html">Preloader</a></li>
                                 <li><a href="layouts-hori-colored-header.html">Colored Header</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
 

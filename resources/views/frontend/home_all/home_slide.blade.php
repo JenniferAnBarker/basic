@@ -25,4 +25,5 @@ $homeSlide = App\Models\HomeSlide::find(1);
     <div class="banner__video">
         <a href="{{ $homeSlide->video_url}}" class="popup-video"><i class="fas fa-play"></i></a>
    
-</section>https://youtu.be/XHOmBV4js_E
+</section>
+{{-- https://youtu.be/XHOmBV4js_E --}}
