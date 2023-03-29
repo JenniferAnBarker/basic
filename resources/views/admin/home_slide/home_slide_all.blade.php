@@ -12,8 +12,10 @@
 
                         <h4 class="card-title">Home Slide Page</h4>
                         
-                        <form method="post" action="{{ route('store.profile')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('update.slider',$homeSlide->id)}}" enctype="multipart/form-data">
                             @csrf
+
+                                <input type="hidden" name="id" value="{{ $homeSlide->title }}">
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
@@ -23,22 +25,22 @@
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Subtitle</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="short_title" class="form-control" type="email" value="{{ $homeSlide->short_title }}" id="short_title">
-                                </div>
-                            
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Slider Image</label>
-                                <div class="col-sm-10 mb-3">
-                                    <input name="slide" class="form-control" type="text" value="{{ $homeSlide->slide }}" id="slide">
+                                    <input name="short_title" class="form-control" type="text" value="{{ $homeSlide->short_title }}" id="short_title">
                                 </div>
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Video URL</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="video_url" class="form-control" type="file" id="video_url">
+                                    <input name="video_url" class="form-control" type="text" id="video_url">
                                 </div>
                             
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Slider Image</label>
+                                <div class="col-sm-10 mb-3">
+                                    <input name="slide" class="form-control" type="file" value="{{ $homeSlide->slide }}" id="image">
+                                </div>
+
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10 mb- mt-3">
-                                    <img id="showImage" class="rounded avatar-lg" src="{{(empty($homeSlide->home_slide))? url('upload/home_slide/no_image.jpg'.$homeSlide->home_slide): url('upload/') }}" alt="Card image cap">
+                                    <img id="showImage" class="rounded avatar-lg" src="{{(empty($homeSlide->home_slide))? url('upload/home_slide/no_image.jpg'): url('upload/home_slide/'.$homeSlide->home_slide) }}" alt="Card image cap">
                                 </div>
                             </div>
                             <input type="submit" value="Update Slide" class="btn btn-info waves-effect waves-light">

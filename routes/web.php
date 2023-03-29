@@ -24,6 +24,7 @@ Route::controller(AdminController::class)->group(function () {
 //HomeSlider All Route
 Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/home/slide', 'homeSlider')->name('home.slide');
+    Route::post('/update/slider', 'update')->name('update.slider');
 });
 
 Route::get('/dashboard', function () {

@@ -209,8 +209,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Image' => Intervention\Image\Facades\Image::class
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];
