@@ -60,4 +60,8 @@ class AboutController extends Controller
 
         return view('frontend.about',compact('aboutdata'));
     }
+
+    public function aboutMulti() {
+        return view('admin.about_page.multiImage');
+    }
 }
