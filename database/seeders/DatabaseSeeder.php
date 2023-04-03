@@ -22,19 +22,19 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        \App\Models\HomeSlide::factory()->create([
-            'title' => 'Testing',
-            'short_title' => "Testing Let's Go 1, 2, 3",
-            'home_slide' => 'upload/home_slide/1761711064569119.png',
-            'video_url' => 'https://youtu.be/XHOmBV4js_E'
-        ]);
+        // \App\Models\HomeSlide::factory()->create([
+        //     'title' => 'Testing',
+        //     'short_title' => "Testing Let's Go 1, 2, 3",
+        //     'home_slide' => 'upload/home_slide/1761711064569119.png',
+        //     'video_url' => 'https://youtu.be/XHOmBV4js_E'
+        // ]);
 
-        \App\Models\About::factory()->create([
-            'title' => 'Testing',
-            'short_title' => "Testing, testing, 1, 2, 3",
-            'short_description' => "We came, we tested, we conquered!",
-            'long_description' => 'Yaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyy',
-            'about_image' => ''
-        ]);
+        // \App\Models\About::factory()->create([
+        //     'title' => 'Testing',
+        //     'short_title' => "Testing, testing, 1, 2, 3",
+        //     'short_description' => "We came, we tested, we conquered!",
+        //     'long_description' => 'Yaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyy',
+        //     'about_image' => ''
+        // ]);
     }
 }
