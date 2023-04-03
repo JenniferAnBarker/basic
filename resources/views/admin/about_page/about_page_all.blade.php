@@ -41,7 +41,7 @@
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="about_image" class="form-control" type="file" id="image">
+                                    <input name="about_image" class="form-control" type="file" id="about_image">
                                 </div>
 
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
@@ -61,7 +61,7 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-    $('#image').change(function(e){
+    $('#about_image').change(function(e){
         var reader = new FileReader();
         reader.onload = function(e){
             $('#showImage').attr('src',e.target.result);
