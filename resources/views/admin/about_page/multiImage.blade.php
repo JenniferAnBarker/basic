@@ -13,14 +13,14 @@
 
                         <h4 class="card-title">Add Multi Image</h4> </br></br>
                         
-                        <form method="post" action="{{ route('update.about')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('store.multi.image')}}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">About Multi Image</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="multi_image" class="form-control" type="file" id="about_image">
+                                    <input name="multi_image[]" class="form-control" type="file" id="about_image" multiple="">
                                 </div>
 
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
