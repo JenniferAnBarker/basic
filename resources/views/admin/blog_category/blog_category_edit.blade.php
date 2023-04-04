@@ -11,21 +11,23 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title mb-4">Add Blog Category</h4>
+                        <h4 class="card-title mb-4">Edit Blog Category</h4>
                         
-                        <form method="post" action="{{ route('store.blog')}}">
+                        <form method="post" action="{{ route('update.blog')}}">
                             @csrf
+
+                            <input type="hidden" name="id" value="{{$blog->id}}">
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Blog Category Name</label>
                                 <div class="col-sm-10 mb-3">
-                                    <input name="blog_category" class="form-control" type="text" value="" id="title">
+                                    <input name="blog_category" class="form-control" type="text" value="{{$blog->blog_category}}" id="title">
                                     @error('blog_category')
                                         <span class="text-danger">{{ $message}}</span>
                                     @enderror
                                 </div>
                             </div>
-                            <input type="submit" value="Insert Blog Category" class="btn btn-info waves-effect waves-light">
+                            <input type="submit" value="Update Blog Category" class="btn btn-info waves-effect waves-light">
                         </form>
                     </div>
                 </div>
