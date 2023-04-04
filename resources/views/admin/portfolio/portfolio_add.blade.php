@@ -13,18 +13,24 @@
 
                         <h4 class="card-title mb-4">Portfolio</h4>
                         
-                        <form method="post" action="{{ route('update.about')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('store.portfolio')}}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10 mb-3">
                                     <input name="portfolio_name" class="form-control" type="text" value="" id="title">
+                                    @error('portfolio_name')
+                                        <span class="text-danger">{{ $message}}</span>
+                                    @enderror
                                 </div>
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10 mb-3">
                                     <input name="portfolio_title" class="form-control" type="text" value="" id="short_title">
+                                    @error('portfolio_title')
+                                        <span class="text-danger">{{ $message}}</span>
+                                    @enderror
                                 </div>
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
@@ -36,11 +42,11 @@
                                 <div class="col-sm-10 mb-3">
                                     <input name="portfolio_image" class="form-control" type="file" id="portfolio_image">
                                 </div>
-{{-- 
+
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10 mb- mt-3">
-                                    <img id="showImage" class="rounded avatar-lg" src="{{(empty($aboutpage->about_image))? url('upload/about_page/no_image.jpg'): url($aboutpage->about_image) }}" alt="Card image cap">
-                                </div> --}}
+                                    <img id="showImage" class="rounded avatar-lg" src="{{url('upload/about_page/no_image.jpg')}}" alt="Card image cap">
+                                </div>
                             </div>
                             <input type="submit" value="Update Portfolio" class="btn btn-info waves-effect waves-light">
                         </form>
