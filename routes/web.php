@@ -54,6 +54,7 @@ Route::controller(PortfolioController::class)->group(function () {
     Route::get('/add/portfolio', 'addPortfolio')->name('add.portfolio');
     Route::get('/edit/portfolio/{id}', 'editPortfolio')->name('edit.portfolio');
     Route::get('/delete/portfolio/{id}', 'deletePortfolio')->name('delete.portfolio');
+    Route::get('/portfolio/details/{id}', 'portfolioDetails')->name('portfolio.details');
     
     Route::post('/store/portfolio', 'storePortfolio')->name('store.portfolio');
     Route::post('/update/portfolio', 'updatePortfolio')->name('update.portfolio');
