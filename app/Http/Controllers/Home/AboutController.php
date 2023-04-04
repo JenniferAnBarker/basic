@@ -93,5 +93,36 @@ class AboutController extends Controller
     public function allMulti() {
         $allMultiImage = MultiImage::all();
         return view('admin.about_page.all_multi',compact('allMultiImage'));
-    }
+    }// End Method
+
+    public function editItem($id) {
+        $multiImage = MultiImage::findOrFail($id);
+        return view('admin.about_page.edit_multi_image',compact('multiImage'));
+    }// End Method
+
+    public function updateMultiImage(Request $request) {
+
+        $mi_id = $request->id;
+
+        if($request->file('multi_image')) {
+            $image = $request->file('multi_image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+
+            
+            Image::make($image)->resize(220,220)->save('upload/multi/'.$name_gen);
+            $save_url = 'upload/multi/'.$name_gen;
+
+            MultiImage::findOrFail($mi_id)->update([
+                'multi_image' => $save_url,
+            ]);
+
+            $notification = array(
+                'message' => 'Updates to image saved!',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->back()->with($notification);
+        } 
+
+    }// End Method
 }

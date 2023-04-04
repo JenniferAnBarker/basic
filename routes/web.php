@@ -34,8 +34,10 @@ Route::controller(AboutController::class)->group(function () {
     Route::get('/about/page', 'aboutPage')->name('about.page');
     Route::get('/about/multi/image', 'aboutMulti')->name('about.multi.image');
     Route::get('/all/multi/image', 'allMulti')->name('all.multi.image');
+    Route::get('/edit/multi/{id}', 'editItem')->name('edit.multi');
     Route::post('/update/about', 'update')->name('update.about');
     Route::post('/update/multi', 'storeMulti')->name('store.multi.image');
+    Route::post('/update/multi/image', 'updateMultiImage')->name('update.multi.image');
 });
 
 Route::get('/dashboard', function () {
