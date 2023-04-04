@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\PortfolioController;
+use App\Http\Controllers\Home\BlogCategoryController;
 
 
 Route::get('/', function () {
@@ -58,6 +59,13 @@ Route::controller(PortfolioController::class)->group(function () {
     
     Route::post('/store/portfolio', 'storePortfolio')->name('store.portfolio');
     Route::post('/update/portfolio', 'updatePortfolio')->name('update.portfolio');
+});
+
+//BlogCategory All Route
+Route::controller(BlogCategoryController::class)->group(function () {
+    Route::get('/all/blog', 'allBlog')->name('all.blog');
+    
+    Route::post('/store/portfolio', 'storePortfolio')->name('store.portfolio');
 });
 
 
