@@ -13,7 +13,7 @@
 
                         <h4 class="card-title mb-4">Edit Blog Category</h4>
                         
-                        <form method="post" action="{{ route('update.blog')}}">
+                        <form method="post" action="{{ route('update.blog.category')}}">
                             @csrf
 
                             <input type="hidden" name="id" value="{{$blog->id}}">

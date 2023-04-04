@@ -35,7 +35,7 @@ class BlogCategoryController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('all.blog')->with($notification);
+        return redirect()->route('all.blog.category')->with($notification);
     }// End Method
 
     public function editBlog($id) {
@@ -55,7 +55,7 @@ class BlogCategoryController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('all.blog')->with($notification);
+        return redirect()->route('all.blog.category')->with($notification);
     }// End Method
 
     public function deleteBlog($id) {
@@ -66,6 +66,6 @@ class BlogCategoryController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('all.blog')->with($notification);
+        return redirect()->route('all.blog.category')->with($notification);
     }// End Method
 }

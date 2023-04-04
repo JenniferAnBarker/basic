@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\AboutController;
-use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\PortfolioController;
+use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\BlogCategoryController;
 
 
@@ -63,13 +64,20 @@ Route::controller(PortfolioController::class)->group(function () {
 
 //BlogCategory All Route
 Route::controller(BlogCategoryController::class)->group(function () {
-    Route::get('/all/blog', 'allBlog')->name('all.blog');
-    Route::get('/add/blog', 'addBlog')->name('add.blog');
-    Route::get('/edit/blog{id}', 'editBlog')->name('edit.blog');
-    Route::get('/delete/blog{id}', 'deleteBlog')->name('delete.blog');
+    Route::get('/all/blog/category', 'allBlog')->name('all.blog.category');
+    Route::get('/add/blog/category', 'addBlog')->name('add.blog.category');
+    Route::get('/edit/blog/category/{id}', 'editBlog')->name('edit.blog.category');
+    Route::get('/delete/blog/category/{id}', 'deleteBlog')->name('delete.blog.category');
+    
+    Route::post('/store/blog/category', 'storeBlog')->name('store.blog.category');
+    Route::post('/update/blog/category', 'updateBlog')->name('update.blog.category');
+});
+
+//Blog All Route
+Route::controller(BlogController::class)->group(function () {
+    Route::get('/all/blogs', 'allBlogs')->name('all.blogs');
     
     Route::post('/store/blog', 'storeBlog')->name('store.blog');
-    Route::post('/update/blog', 'updateBlog')->name('update.blog');
 });
 
 
