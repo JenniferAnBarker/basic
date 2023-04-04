@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\PortfolioController;
 
 
 Route::get('/', function () {
@@ -45,6 +46,13 @@ Route::controller(AboutController::class)->group(function () {
     Route::post('/update/about', 'update')->name('update.about');
     Route::post('/update/multi', 'storeMulti')->name('store.multi.image');
     Route::post('/update/multi/image', 'updateMultiImage')->name('update.multi.image');
+});
+
+//Portfolio All Route
+Route::controller(PortfolioController::class)->group(function () {
+    Route::get('/all/portfolio', 'allPortfolio')->name('all.portfolio');
+
+    Route::post('/update/slider', 'update')->name('update.slider');
 });
 
 
