@@ -44,10 +44,10 @@
                                         <td> <img src="{{ asset($item->portfolio_image)}}" alt="" style="width: 80px; height: 80px;"></td>
                                         
                                         <td>
-                                            <a href="" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                            {{-- {{ route('edit.multi', $item->id)}} --}}
-                                            <a href="" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-backspace"></i></a>
-                                        {{-- {{ route('delete.multi.image', $item->id)}} --}}
+                                            <a href="{{ route('edit.portfolio', $item->id)}}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                            
+                                            <a href="{{ route('delete.portfolio', $item->id)}}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-backspace"></i></a>
+                                        
                                         </td>
                                     </tr>
                                     @endforeach
