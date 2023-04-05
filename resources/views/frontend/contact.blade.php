@@ -43,23 +43,44 @@
     <!-- contact-area -->
     <div class="contact-area">
         <div class="container">
-            <form action="#" class="contact__form">
+            <form method="POST" action="{{ route('store.message')}}" class="contact__form">
+                @csrf
                 <div class="row">
+
                     <div class="col-md-6">
-                        <input type="text" placeholder="Enter your name*">
+                        <input name="name" type="text" placeholder="Enter your name*">
+                        @error('name')
+                        <span class="text-danger">{{ $message}}</span>
+                        @enderror
                     </div>
+
                     <div class="col-md-6">
-                        <input type="email" placeholder="Enter your mail*">
+                        <input name="email" type="email" placeholder="Enter your email*">
+                        @error('email')
+                        <span class="text-danger">{{ $message}}</span>
+                        @enderror
                     </div>
+
                     <div class="col-md-6">
-                        <input type="text" placeholder="Enter your subject*">
+                        <input name="subject" type="text" placeholder="Enter your subject*">
+                        @error('subject')
+                        <span class="text-danger">{{ $message}}</span>
+                        @enderror
                     </div>
+
                     <div class="col-md-6">
-                        <input type="text" placeholder="Your Budget*">
+                        <input name="phone" type="text" placeholder="Your Phone*">
+                        @error('phone')
+                        <span class="text-danger">{{ $message}}</span>
+                        @enderror
                     </div>
+
                 </div>
-                <textarea name="message" id="message" placeholder="Enter your massage*"></textarea>
-                <button type="submit" class="btn">send massage</button>
+                    <textarea name="message" id="message" placeholder="Enter your message*"></textarea>
+                    @error('message')
+                    <span class="text-danger">{{ $message}}</span>
+                    @enderror
+                <button type="submit" class="btn">send message</button>
             </form>
         </div>
     </div>
