@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('main')
 
-<main>
+{{-- <main>
 
     <!-- breadcrumb-area -->
     <section class="breadcrumb__wrap">
@@ -309,9 +309,9 @@
     </section>
     <!-- contact-area-end -->
 
-</main>
+</main> --}}
 
-{{-- <main>
+<main>
 
     <!-- breadcrumb-area -->
     <section class="breadcrumb__wrap">
@@ -319,11 +319,11 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     <div class="breadcrumb__wrap__content">
-                        <h2 class="title">Single Article</h2>
+                        <h2 class="title">{{$blog->blog_title}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{$blog->blog_category}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -332,12 +332,12 @@
         </div>
         <div class="breadcrumb__wrap__icon">
             <ul>
-                <li><img src="assets/img/icons/breadcrumb_icon01.png" alt=""></li>
+                {{-- <li><img src="assets/img/icons/breadcrumb_icon01.png" alt=""></li>
                 <li><img src="assets/img/icons/breadcrumb_icon02.png" alt=""></li>
                 <li><img src="assets/img/icons/breadcrumb_icon03.png" alt=""></li>
                 <li><img src="assets/img/icons/breadcrumb_icon04.png" alt=""></li>
                 <li><img src="assets/img/icons/breadcrumb_icon05.png" alt=""></li>
-                <li><img src="assets/img/icons/breadcrumb_icon06.png" alt=""></li>
+                <li><img src="assets/img/icons/breadcrumb_icon06.png" alt=""></li> --}}
             </ul>
         </div>
     </section>
@@ -355,48 +355,19 @@
                         </div>
                         <div class="blog__details__content services__details__content">
                             <ul class="blog__post__meta">
-                                <li><i class="fal fa-calendar-alt"></i> 25 january 2021</li>
+                                <li><i class="fal fa-calendar-alt"></i>{{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()}}</li>
                                 <li><i class="fal fa-comments-alt"></i> <a href="#">Comment (08)</a></li>
                                 <li class="post-share"><a href="#"><i class="fal fa-share-all"></i> (18)</a></li>
                             </ul>
-                            <h2 class="title">Best website traffics Booster with great tools.</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                            <p>Definition Business strategy can be understood as the course of action or set of decisions which assist the
-                                entrepreneurs in achieving specific business objectives.</p>
-                            <p>It is nothing but a master plan that the management of a company implements to secure a competitive position in the market, carry on its operations, please customers and achieve the desired ends of the business.</p>
-                            <p>In business, it is the long-range sketch of the desired image, direction and destination of the organization. It is a scheme of corporate intent and action, which is carefully planned and flexibly designed with the purpose of</p>
-                            <ul class="services__details__list">
-                                <li>Achieving effectiveness,</li>
-                                <li>Perceiving and utilizing opportunities,</li>
-                                <li>Mobilising resources,</li>
-                                <li>Securing an advantageous position,</li>
-                                <li>Meeting challenges and threats,</li>
-                                <li>Directing efforts and behaviour and</li>
-                                <li>Gaining command over the situation.</li>
-                            </ul>
-                            <p>A business strategy is a set of competitive moves and actions that a business uses to attract customers, compete successfully, strengthening performance, and achieve organizational goals. It outlines how business should be carried out to reach the desired ends</p>
-                            <div class="services__details__img">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <img src="assets/img/blog/blog_details_img01.jpg" alt="">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <img src="assets/img/blog/blog_details_img02.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <h2 class="small-title">Nature of Business Strategy</h2>
-                            <p>A business strategy is a combination of proactive actions on the part of management, for the purpose of enhancing the company’s market position and overall performance and reactions to unexpected developments and new market.</p>
-                            <p>The maximum part of the company’s present strategy is a result of formerly initiated actions and business approaches, but when market conditions take an unanticipated turn, the company requires a strategic reaction to cope with contingencies. Hence, for unforeseen development, a part of the business strategy is formulated as a reasoned response nature of business strategy.</p>
+                            <h2 class="title">{{$blog->blog_title}}</h2>
+                            <p>{!! $blog->blog_description!!}</p>
                         </div>
                         <div class="blog__details__bottom">
                             <ul class="blog__details__tag">
                                 <li class="title">Tag:</li>
                                 <li class="tags-list">
-                                    <a href="#">Business</a>
-                                    <a href="#">Design</a>
-                                    <a href="#">apps</a>
-                                    <a href="#">data</a>
+                                    <a href="#">{{ $blog->blog_tags}}</a>
+                                    
                                 </li>
                             </ul>
                             <ul class="blog__details__social">
@@ -416,7 +387,7 @@
                                         <h4 class="title">Previous Post</h4>
                                         <div class="blog__next__prev__post">
                                             <div class="blog__next__prev__thumb">
-                                                <a href="blog-details.html"><img src="assets/img/blog/blog_prev.jpg" alt=""></a>
+                                                {{-- <a href="blog-details.html"><img src="assets/img/blog/blog_prev.jpg" alt=""></a> --}}
                                             </div>
                                             <div class="blog__next__prev__content">
                                                 <h5 class="title"><a href="blog-details.html">Digital Marketing Agency Pricing Guide.</a></h5>
@@ -429,7 +400,7 @@
                                         <h4 class="title">Next Post</h4>
                                         <div class="blog__next__prev__post">
                                             <div class="blog__next__prev__thumb">
-                                                <a href="blog-details.html"><img src="assets/img/blog/blog_next.jpg" alt=""></a>
+                                                {{-- <a href="blog-details.html"><img src="assets/img/blog/blog_next.jpg" alt=""></a> --}}
                                             </div>
                                             <div class="blog__next__prev__content">
                                                 <h5 class="title"><a href="blog-details.html">App Prototyping
@@ -447,7 +418,7 @@
                             <ul class="comment__list">
                                 <li class="comment__item">
                                     <div class="comment__thumb">
-                                        <img src="assets/img/blog/comment_thumb01.png" alt="">
+                                        {{-- <img src="assets/img/blog/comment_thumb01.png" alt=""> --}}
                                     </div>
                                     <div class="comment__content">
                                         <div class="comment__avatar__info">
@@ -462,7 +433,7 @@
                                 </li>
                                 <li class="comment__item children">
                                     <div class="comment__thumb">
-                                        <img src="assets/img/blog/comment_thumb02.png" alt="">
+                                        {{-- <img src="assets/img/blog/comment_thumb02.png" alt=""> --}}
                                     </div>
                                     <div class="comment__content">
                                         <div class="comment__avatar__info">
@@ -477,7 +448,7 @@
                                 </li>
                                 <li class="comment__item">
                                     <div class="comment__thumb">
-                                        <img src="assets/img/blog/comment_thumb03.png" alt="">
+                                        {{-- <img src="assets/img/blog/comment_thumb03.png" alt=""> --}}
                                     </div>
                                     <div class="comment__content">
                                         <div class="comment__avatar__info">
@@ -492,7 +463,7 @@
                                 </li>
                                 <li class="comment__item children">
                                     <div class="comment__thumb">
-                                        <img src="assets/img/blog/comment_thumb04.png" alt="">
+                                        {{-- <img src="assets/img/blog/comment_thumb04.png" alt=""> --}}
                                     </div>
                                     <div class="comment__content">
                                         <div class="comment__avatar__info">
@@ -547,68 +518,27 @@
                         <div class="widget">
                             <h4 class="widget-title">Recent Blog</h4>
                             <ul class="rc__post">
+                                
+                                @foreach($allBlogs as $all)
                                 <li class="rc__post__item">
                                     <div class="rc__post__thumb">
-                                        <a href="blog-details.html"><img src="assets/img/blog/rc_thumb01.jpg" alt=""></a>
+                                        <a href="blog-details.html"><img src="{{ asset($all->blog_image)}}" alt=""></a>
                                     </div>
                                     <div class="rc__post__content">
-                                        <h5 class="title"><a href="blog-details.html">Best website traffick booster with
-                                        great tools.</a></h5>
-                                        <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
+                                        <h5 class="title"><a href="{{ route('blog.details',$all->id)}}">{{$all->blog_title}}</a></h5>
+                                        <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($all->created_at)->diffForHumans()}}</span>
                                     </div>
                                 </li>
-                                <li class="rc__post__item">
-                                    <div class="rc__post__thumb">
-                                        <a href="blog-details.html"><img src="assets/img/blog/rc_thumb02.jpg" alt=""></a>
-                                    </div>
-                                    <div class="rc__post__content">
-                                        <h5 class="title"><a href="blog-details.html">How to become a best sale marketer
-                                        in a year!</a></h5>
-                                        <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                                    </div>
-                                </li>
-                                <li class="rc__post__item">
-                                    <div class="rc__post__thumb">
-                                        <a href="blog-details.html"><img src="assets/img/blog/rc_thumb03.jpg" alt=""></a>
-                                    </div>
-                                    <div class="rc__post__content">
-                                        <h5 class="title"><a href="blog-details.html">Google take latest step & catch the
-                                        black SEO</a></h5>
-                                        <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                                    </div>
-                                </li>
-                                <li class="rc__post__item">
-                                    <div class="rc__post__thumb">
-                                        <a href="blog-details.html"><img src="assets/img/blog/rc_thumb04.jpg" alt=""></a>
-                                    </div>
-                                    <div class="rc__post__content">
-                                        <h5 class="title"><a href="blog-details.html">Businesses are thriving societies. Time for urgent change</a></h5>
-                                        <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                                    </div>
-                                </li>
-                                <li class="rc__post__item">
-                                    <div class="rc__post__thumb">
-                                        <a href="blog-details.html"><img src="assets/img/blog/rc_thumb05.jpg" alt=""></a>
-                                    </div>
-                                    <div class="rc__post__content">
-                                        <h5 class="title"><a href="blog-details.html">TikTok influencer marketing:How to
-                                        work with influencer</a></h5>
-                                        <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                                    </div>
-                                </li>
+                                @endforeach
+
                             </ul>
                         </div>
                         <div class="widget">
                             <h4 class="widget-title">Categories</h4>
                             <ul class="sidebar__cat">
-                                <li class="sidebar__cat__item"><a href="blog.html">Web Design (6)</a></li>
-                                <li class="sidebar__cat__item"><a href="blog.html">Web Development (4)</a></li>
-                                <li class="sidebar__cat__item"><a href="blog.html">Product Design (9)</a></li>
-                                <li class="sidebar__cat__item"><a href="blog.html">Animation (6)</a></li>
-                                <li class="sidebar__cat__item"><a href="blog.html">Ui/Ux Design (8)</a></li>
-                                <li class="sidebar__cat__item"><a href="blog.html">Branding Design (12)</a></li>
-                                <li class="sidebar__cat__item"><a href="blog.html">Web Design (6)</a></li>
-                                <li class="sidebar__cat__item"><a href="blog.html">Logo Design (6)</a></li>
+                                @foreach($categories as $cat)
+                                <li class="sidebar__cat__item"><a href="{{ route('category.blog',$cat->id)}}">{{ $cat->blog_category}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="widget">
@@ -688,6 +618,6 @@
     </section>
     <!-- contact-area-end -->
 
-</main> --}}
+</main>
 
 @endsection

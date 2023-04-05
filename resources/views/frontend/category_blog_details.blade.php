@@ -10,11 +10,11 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     <div class="breadcrumb__wrap__content">
-                        <h2 class="title"></h2>
+                        <h2 class="title">{{$catname->blog_category}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"></li>
+                                <li class="breadcrumb-item active" aria-current="page">Blogs</li>
                             </ol>
                         </nav>
                     </div>
@@ -52,8 +52,8 @@
                                 <div class="thumb"><img src="assets/img/blog/blog_avatar.png" alt=""></div>
                                 <span class="post__by">By : <a href="#">Halina Spond</a></span>
                             </div>
-                            <h2 class="title"><a href="blog-details.html">{{ $item->blog_title}}</a></h2>
-                            <p>{!! $item->blog_description!!}</p>
+                            <h2 class="title"><a href="{{ route('blog.details',$item->id)}}">{{ $item->blog_title}}</a></h2>
+                            <p> {!! Str::limit($item->blog_description, 200) !!}</p>
                             <ul class="blog__post__meta">
                                 <li><i class="fal fa-calendar-alt"></i>{{ Carbon\Carbon::parse($item->created_at)}}</li>
                                 {{-- <li><i class="fal fa-comments-alt"></i> <a href="#">Comment (08)</a></li> --}}
@@ -90,7 +90,7 @@
                                         <a href="blog-details.html"><img src="{{ asset($all->blog_image)}}" alt=""></a>
                                     </div>
                                     <div class="rc__post__content">
-                                        <h5 class="title"><a href="blog-details.html">{{$all->blog_title}}</a></h5>
+                                        <h5 class="title"><a href="{{ route('blog.details',$all->id)}}">{{$all->blog_title}}</a></h5>
                                         <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($all->created_at)->diffForHumans()}}</span>
                                     </div>
                                 </li>
