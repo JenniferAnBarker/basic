@@ -117,7 +117,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('all.blogs')}}">All Blogs</a></li>
-                        <li><a href="pages-timeline.html">Add a Blog</a></li>
+                        <li><a href="{{ route('add.blogs')}}">Add a Blog</a></li>
                     </ul>
                 </li>
 
