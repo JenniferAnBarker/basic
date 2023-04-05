@@ -121,4 +121,11 @@ class BlogController extends Controller
         $tags = Blog::orderBy('blog_tags')->get();
          return view('frontend/blog_details',compact('blog','allBlogs','categories','tags'));
     }// End Method
+
+    public function categoryBlog($id) {
+        $blogpost = Blog::where('blog_category_id',$id)->orderBy('id','DESC')->get();
+        $allBlogs = Blog::latest()->limit(5)->get();
+        $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+        return view('frontend.category_blog_details',compact('blogpost','allBlogs','categories'));
+    }// End Method
 }
