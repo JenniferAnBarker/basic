@@ -112,4 +112,13 @@ class BlogController extends Controller
 
         return redirect()->route('all.blogs')->with($notification);
     }// End Method
+
+    public function blogDetails($id) {
+
+        $allBlogs = Blog::latest()->limit(5)->get();
+        $blog = Blog::findOrFail($id);
+        $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+        $tags = Blog::orderBy('blog_tags')->get();
+         return view('frontend/blog_details',compact('blog','allBlogs','categories','tags'));
+    }// End Method
 }

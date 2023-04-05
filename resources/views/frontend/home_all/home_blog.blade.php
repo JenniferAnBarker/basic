@@ -15,13 +15,13 @@ $blogs = App\Models\Blog::latest()->get();
                     <div class="blog__post__thumb">
                         <a href="blog-details.html"><img src="{{ asset($item->blog_image)}}" alt=""></a>
                         <div class="blog__post__tags">
-                            <a href="blog.html">{{ $item['category']['blog_category']}}</a>
+                            <a href="{{ route('blog.details',$item->id)}}">{{ $item['category']['blog_category']}}</a>
                         </div>
                     </div>
                     <div class="blog__post__content">
                         <span class="date">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
-                        <h3 class="title"><a href="blog-details.html">{{ $item->blog_title}}</a></h3>
-                        <a href="blog-details.html" class="read__more">Read more</a>
+                        <h3 class="title"><a href="{{ route('blog.details',$item->id)}}">{{ $item->blog_title}}</a></h3>
+                        <a href="{{ route('blog.details',$item->id)}}" class="read__more">Read more</a>
                     </div>
                 </div>
             </div>
