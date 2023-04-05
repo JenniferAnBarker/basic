@@ -13,7 +13,7 @@
 
                         <h4 class="card-title mb-4">Edit blog</h4>
                         
-                        <form method="post" action="{{ route('store.blog')}}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('update.blog')}}" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" name="id" value="{{$blog->id}}">
@@ -22,9 +22,9 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Category</label>
                                 <div class="col-sm-10 mb-3">
                                     <select name="blog_category_id" class="form-select" aria-label="Default select example">
-                                        <option selected=""></option>
+                                        <option selected="">Open this select menu</option>
                                         @foreach($categories as $item)
-                                        <option value="{{$item->id}}">{{$item->blog_category}}</option>
+                                        <option value="{{$item->id}}" {{ $item->id == $blog->blog_category_id ? 'selected' : ''}} >{{$item->blog_category}}</option>
                                         @endforeach
                                     </select>
                                 </div>
