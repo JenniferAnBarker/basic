@@ -10,7 +10,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     <div class="breadcrumb__wrap__content">
-                        <h2 class="title">{{$catname->blog_category}}</h2>
+                        <h2 class="title">All Blogs</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-lg-8">
 
-                    @foreach($blogpost as $item)
+                    @foreach($allblogs as $item)
                     <div class="standard__blog__post">
                         <div class="standard__blog__thumb">
                             <a href="blog-details.html"><img src="{{ asset($item->blog_image)}}" alt=""></a>
@@ -84,7 +84,8 @@
                             <h4 class="widget-title">Recent Blog</h4>
                             <ul class="rc__post">
 
-                                @foreach($allBlogs as $all)
+                                @foreach($allblogs as $all)
+                                @if($loop->index < 4)
                                 <li class="rc__post__item">
                                     <div class="rc__post__thumb">
                                         <a href="blog-details.html"><img src="{{ asset($all->blog_image)}}" alt=""></a>
@@ -94,6 +95,7 @@
                                         <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($all->created_at)->diffForHumans()}}</span>
                                     </div>
                                 </li>
+                                @endif
                                 @endforeach
                                 
                             </ul>
