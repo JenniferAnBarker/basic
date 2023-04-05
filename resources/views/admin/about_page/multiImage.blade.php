@@ -26,10 +26,6 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10 mb- mt-3">
                                     <img id="showImage" class="rounded avatar-lg" src="{{url('upload/about_page/no_image.jpg')}}" alt="Card image cap">
-                                    {{-- (empty($aboutpage->about_image))?  --}}
-                                    
-                                    {{-- : url($aboutpage->about_image) --}}
-                                    
                                 </div>
                             </div>
                             <input type="submit" value="Add Multi Image" class="btn btn-info waves-effect waves-light">

@@ -30,7 +30,7 @@
                                         <th>Sl</th>
                                         <th>Category</th>
                                         <th>Title</th>
-                                        <th>Text</th>
+                                        <th>Tags</th>
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>
@@ -41,14 +41,12 @@
                                         @foreach($blogs as $item)
                                     <tr>
                                         <td>{{ $item->id}}</td>
-                                        <td>{{ $item->blog_category_id}}</td>
+                                        <td>{{ $item['category']['blog_category']}}</td>
                                         <td>{{ $item->blog_title}}</td>
                                         <td>{{ $item->blog_tags}}</td>
-                                        <td><img src="{{ asset($item->blog_image)}}" alt=""></td>
-                                        <td> <img src="{{ asset($item->portfolio_image)}}" alt="" style="width: 80px; height: 80px;"></td>
-                                        
+                                        <td><img src="{{ asset($item->blog_image)}}" alt="" style="width: 90px; height: 90px;"></td>
                                         <td>
-                                            <a href="{{ route('edit.portfolio', $item->id)}}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ route('edit.blog', $item->id)}}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
                                             
                                             <a href="{{ route('delete.portfolio', $item->id)}}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-backspace"></i></a>
                                         
