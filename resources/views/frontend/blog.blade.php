@@ -55,7 +55,7 @@
                             <h2 class="title"><a href="{{ route('blog.details',$item->id)}}">{{ $item->blog_title}}</a></h2>
                             <p> {!! Str::limit($item->blog_description, 200) !!}</p>
                             <ul class="blog__post__meta">
-                                <li><i class="fal fa-calendar-alt"></i>{{ Carbon\Carbon::parse($item->created_at)}}</li>
+                                <li><i class="fal fa-calendar-alt"></i>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</li>
                                 {{-- <li><i class="fal fa-comments-alt"></i> <a href="#">Comment (08)</a></li> --}}
                                 <li class="post-share"><a href="#"><i class="fal fa-share-all"></i> (18)</a></li>
                             </ul>
