@@ -25,6 +25,9 @@
                                         <option value="{{$item->id}}">{{$item->blog_category}}</option>
                                         @endforeach
                                     </select>
+                                    @error('blog_category_id')
+                                    <span class="text-danger">{{ $message}}</span>
+                                @enderror
                                 </div>
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
@@ -38,16 +41,25 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Tags</label>
                                 <div class="col-sm-10 mb-3">
                                     <input name="blog_tags" class="form-control" value="home,tech" type="text" data-role="tagsinput">
+                                    @error('blog_tags')
+                                    <span class="text-danger">{{ $message}}</span>
+                                @enderror
                                 </div>
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10 mb-3">
                                     <textarea id="elm1" name="blog_description" class="form-control"></textarea>
+                                    @error('blog_description')
+                                    <span class="text-danger">{{ $message}}</span>
+                                @enderror
                                 </div>
                             
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Image</label>
                                 <div class="col-sm-10 mb-3">
                                     <input name="blog_image" class="form-control" type="file" id="blog_image">
+                                    @error('blog_image')
+                                        <span class="text-danger">{{ $message}}</span>
+                                    @enderror
                                 </div>
 
                                 <label for="example-text-input" class="col-sm-2 col-form-label"></label>

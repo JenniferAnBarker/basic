@@ -22,7 +22,19 @@ class BlogController extends Controller
     }// End Method
 
     public function storeBlog(Request $request) {
-        if($request->file('blog_image')){
+        
+        $request->validate([
+            'blog_image' => 'required',
+            'blog_title' => 'required',
+            'blog_description' => 'required',
+            'blog_tags' => 'required',
+        ],[
+            'blog_image.required' => 'Image is required.',
+            'blog_title.required' => 'Title is required.',
+            'blog_description.required' => 'Description is required.',
+            'blog_tags.required' => 'Tags are required.',
+        ]);
+
             $image = $request->file('blog_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
 
@@ -37,16 +49,6 @@ class BlogController extends Controller
                 'blog_description' => $request->blog_description,
                 'created_at' => Carbon::now()
             ]);
-
-        } else {
-            Blog::insert([
-                'blog_category_id' => $request->blog_category_id,
-                'blog_title' => $request->blog_title,
-                'blog_tags' => $request->blog_tags,
-                'blog_description' => $request->blog_description,
-                'created_at' => Carbon::now()
-            ]);
-        }
         
         $notification = array([
             'message' => 'Blog page made successfully!',
@@ -94,5 +96,20 @@ class BlogController extends Controller
         ]);
 
         return redirect()->route('all.blogs')->with($notification);
-    }
+    }// End Method
+
+    public function deleteBlog($id) {
+        $blog = Blog::findOrFail($id);
+        $img = $blog->blog_image;
+        unlink($img);
+
+        Blog::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Blog Deleted!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.blogs')->with($notification);
+    }// End Method
 }
