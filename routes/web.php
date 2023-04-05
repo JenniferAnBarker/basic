@@ -54,6 +54,7 @@ Route::controller(AboutController::class)->group(function () {
 
 //Portfolio All Route
 Route::controller(PortfolioController::class)->group(function () {
+    Route::get('/portfolio', 'homePortfolio')->name('home.portfolio');
     Route::get('/all/portfolio', 'allPortfolio')->name('all.portfolio');
     Route::get('/add/portfolio', 'addPortfolio')->name('add.portfolio');
     Route::get('/edit/portfolio/{id}', 'editPortfolio')->name('edit.portfolio');
@@ -77,13 +78,13 @@ Route::controller(BlogCategoryController::class)->group(function () {
 
 //Blog All Route
 Route::controller(BlogController::class)->group(function () {
+    Route::get('/blog', 'homeBlog')->name('home.blog');
     Route::get('/all/blogs', 'allBlogs')->name('all.blogs');
     Route::get('/add/blogs', 'addBlogs')->name('add.blogs');
     Route::get('/edit/blog/{id}', 'editBlog')->name('edit.blog');
     Route::get('/delete/blog/{id}', 'deleteBlog')->name('delete.blog');
     Route::get('/blog/details/{id}', 'blogDetails')->name('blog.details');
     Route::get('/category/blog/{id}', 'categoryBlog')->name('category.blog');
-    Route::get('/blog', 'homeBlog')->name('home.blog');
     
     Route::post('/store/blog', 'storeBlog')->name('store.blog');
     Route::post('/update/blog', 'updateBlog')->name('update.blog');

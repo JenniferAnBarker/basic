@@ -55,6 +55,8 @@ class PortfolioController extends Controller
         return redirect()->route('all.portfolio')->with($notification);
     }// End Method
 
+    
+
     public function editPortfolio($id) {
         $portfolio = Portfolio::findOrFail($id);
 
@@ -120,5 +122,10 @@ class PortfolioController extends Controller
     public function portfolioDetails($id) {
         $portfolio = Portfolio::findOrFail($id);
         return view('frontend.portfolio_details',compact('portfolio'));
+    }// End Method
+    
+    public function homePortfolio() {
+        $portfolio = Portfolio::latest()->get();
+        return view('frontend.portfolio',compact('portfolio'));
     }// End Method
 }

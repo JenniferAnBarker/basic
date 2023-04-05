@@ -212,7 +212,7 @@
 
 <!-- portfolio-area -->
 
-@include('frontend.home_all.portfolio')
+@include('frontend.home_all.home_portfolio')
 
 <!-- portfolio-area-end -->
 
