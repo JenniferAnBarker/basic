@@ -13,12 +13,12 @@
 
                         <h4 class="card-title mb-4">Add Blog Category</h4>
                         
-                        <form method="post" action="{{ route('store.blog.category')}}">
+                        <form method="post" id="myForm" action="{{ route('store.blog.category')}}">
                             @csrf
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Blog Category Name</label>
-                                <div class="col-sm-10 mb-3">
+                                <div class="form-group col-sm-10 mb-3">
                                     <input name="blog_category" class="form-control" type="text" value="" id="title">
                                     {{-- @error('blog_category')
                                         <span class="text-danger">{{ $message}}</span>
@@ -35,6 +35,31 @@
 </div>
 
 <script type="text/javascript">
+$(document).ready(function (){
+    $('#myForm').validate({
+        rules: {
+            blog_category: {
+                required : true,
+            },
+        },
+        messages: {
+            blog_category: {
+                required: 'Please enter category name',
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function (error,element){
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+        },
+        highlight: function(element,errorClass,validClass){
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function(element,errorClass,validClass){
+            $(element).removeClass('is-invalid');
+        },
+    })
+})
 
 </script>
 
