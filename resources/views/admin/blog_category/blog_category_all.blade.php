@@ -35,9 +35,9 @@
 
 
                                     <tbody>
-                                        @foreach($blog as $item)
+                                        @foreach($blog as $key => $item)
                                     <tr>
-                                        <td>{{ $item->id}}</td>
+                                        <td>{{ $key+1}}</td>
                                         <td>{{ $item->blog_category}}</td>
                                         
                                         <td>
