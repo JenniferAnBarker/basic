@@ -67,8 +67,12 @@
                     </div>
                     @endforeach
                     
-                    <div class="pagination-wrap">
+                    {{-- <div class="pagination-wrap">
                         {{ $allblogs->links()}}
+                    </div> --}}
+
+                    <div class="pagination-wrap">
+                        {{ $allblogs->links('vendor.pagination.custom')}}
                     </div>
                 </div>
                 <div class="col-lg-4">
