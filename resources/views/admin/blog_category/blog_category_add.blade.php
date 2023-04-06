@@ -20,9 +20,9 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Blog Category Name</label>
                                 <div class="col-sm-10 mb-3">
                                     <input name="blog_category" class="form-control" type="text" value="" id="title">
-                                    @error('blog_category')
+                                    {{-- @error('blog_category')
                                         <span class="text-danger">{{ $message}}</span>
-                                    @enderror
+                                    @enderror --}}
                                 </div>
                             </div>
                             <input type="submit" value="Insert Blog Category" class="btn btn-info waves-effect waves-light">
@@ -33,5 +33,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+</script>
 
 @endsection
