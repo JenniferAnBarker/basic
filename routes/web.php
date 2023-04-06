@@ -21,14 +21,17 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 //Admin All Route
-Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/admin/profile', 'profile')->name('admin.profile');
-    Route::get('/edit/profile', 'edit')->name('edit.profile');
-    Route::get('/change/password', 'changePassword')->name('change.password');
-    
-    Route::post('/store/profile', 'store')->name('store.profile');
-    Route::post('/update/password', 'updatePassword')->name('update.password');
+Route::middleware(['auth'])->group(function(){
+
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin/logout', 'destroy')->name('admin.logout');
+        Route::get('/admin/profile', 'profile')->name('admin.profile');
+        Route::get('/edit/profile', 'edit')->name('edit.profile');
+        Route::get('/change/password', 'changePassword')->name('change.password');
+        
+        Route::post('/store/profile', 'store')->name('store.profile');
+        Route::post('/update/password', 'updatePassword')->name('update.password');
+    });
 });
 
 //HomeSlider All Route
