@@ -370,8 +370,9 @@
                             <ul class="blog__details__tag">
                                 <li class="title">Tag:</li>
                                 <li class="tags-list">
-                                    <a href="#">{{ $blog->blog_tags}}</a>
-                                    
+                                    @foreach($tags as $t)
+                                    <a href="#">{{ $t}}</a>
+                                    @endforeach
                                 </li>
                             </ul>
                             <ul class="blog__details__social">
