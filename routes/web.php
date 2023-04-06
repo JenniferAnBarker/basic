@@ -94,7 +94,7 @@ Route::controller(BlogController::class)->group(function () {
 Route::controller(FooterController::class)->group(function () {
     Route::get('/footer/setup', 'footerSetup')->name('footer.setup');
 
-    Route::post('/store/blog', 'storeBlog')->name('store.blog');
+    // Route::post('/store/blog', 'storeBlog')->name('store.blog');
     Route::post('/update/footer', 'updateFooter')->name('update.footer');
 });
 
