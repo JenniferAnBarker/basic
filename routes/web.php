@@ -14,7 +14,7 @@ use App\Http\Controllers\Home\BlogCategoryController;
 
 Route::get('/', function () {
     return view('frontend.index');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('admin.index');
